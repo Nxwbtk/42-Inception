@@ -4,3 +4,6 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
