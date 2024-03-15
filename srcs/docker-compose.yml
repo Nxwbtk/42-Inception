@@ -2,8 +2,6 @@ version: "3.8"
 
 services:
   nginx:
-    container_name: nginx
-    build: ./requirements/nginx
-  mariadb:
-    container_name: mariadb
-    build: ./requirements/mariadb
+    container_name: nginx-container
+    build:
+      context: ./requirements/nginx

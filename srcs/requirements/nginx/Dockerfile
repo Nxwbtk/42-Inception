@@ -1,9 +1,3 @@
-FROM alpine:3.18
+FROM debian:bullseye-slim
 
-RUN apk update && apk upgrade
-
-RUN apk add nginx openssl curl openrc
-
-RUN mkdir -p /etc/nginx/ssl
-
-RUN mkdir -p /etc/nginx/conf.d
+RUN apt update && apt upgrade -y && apt install -y nginx openssl
