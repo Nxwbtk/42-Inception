@@ -1,7 +1,17 @@
-version: "3.8"
+version: '3.8'
 
 services:
   nginx:
-    container_name: nginx-container
+    container_name: nginx
+    image: nginx_image
     build:
       context: ./requirements/nginx
+    ports:
+      - 443:443
+    networks:
+      - networks
+    restart: always
+
+networks:
+  networks:
+    driver: bridge
