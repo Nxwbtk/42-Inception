@@ -11,6 +11,12 @@ services:
     networks:
       - networks
     restart: always
+  mariabd:
+    container_name: mariadb
+    image: mariadb_image
+    build: 
+      context: ./requirements/mariadb
+      
 
 networks:
   networks:
