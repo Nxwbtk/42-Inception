@@ -14,9 +14,23 @@ services:
   mariabd:
     container_name: mariadb
     image: mariadb_image
-    build: 
+    env_file:
+      - .env
+    build:
       context: ./requirements/mariadb
-      
+    networks:
+      - networks
+    volumes:
+      - wp-database:/var/lib/mysql
+    restart: always
+
+volumes:
+  wp-database:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/new/data/mariadb
 
 networks:
   networks:
