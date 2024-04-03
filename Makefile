@@ -11,14 +11,23 @@
 # **************************************************************************** #
 
 NAME = inception
+WEB_DIR = /home/bsirikam/data
 
-all: $(NAME)
+
+all: create_dir $(NAME)
+
+create_dir:
+	mkdir -p $(WEB_DIR)/mariadb
 
 $(NAME): up
 
 
 up:
-	docker compose -f ./srcs/docker-compose.yml up -d
+	docker compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
 	docker compose -f ./srcs/docker-compose.yml down
+
+clean: down
+	docker rmi mariadb_image nginx_image
+	sudo rm -rf $(WEB_DIR)
