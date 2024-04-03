@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = inception
-WEB_DIR = /home/bsirikam/data
+WEB_DIR = ~/data
 
 
 all: create_dir $(NAME)

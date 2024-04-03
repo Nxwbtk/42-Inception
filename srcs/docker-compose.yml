@@ -30,7 +30,7 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/bsirikam/data/mariadb
+      device: ~/data/mariadb
 
 networks:
   networks:
