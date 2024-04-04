@@ -22,7 +22,7 @@ EOF
 
 echo "GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '$DB_ROOT'; FLUSH PRIVILEGES;" | mysql -uroot
 echo "CREATE DATABASE IF NOT EXISTS $DB_NAME; GRANT ALL ON $DB_NAME.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS'; FLUSH PRIVILEGES;" | mysql -uroot
-# mysql -uroot -p$DB_ROOT $DB_NAME < /usr/local/bin/wordpress.sql
+mysql -uroot -p$DB_ROOT $DB_NAME < /usr/local/bin/wp.sql
 
 fi
 
