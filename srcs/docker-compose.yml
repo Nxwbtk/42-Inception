@@ -8,6 +8,7 @@ services:
       context: ./requirements/nginx
     ports:
       - 443:443
+      - 80:80
     networks:
       - networks
     restart: always
