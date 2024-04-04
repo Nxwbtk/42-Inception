@@ -24,6 +24,18 @@ services:
     volumes:
       - wp-database:/var/lib/mysql
     restart: always
+  wordpress:
+    container_name: wordpress
+    image: wordpress_image
+    env_file:
+      - .env
+    build:
+      context: ./requirements/wordpress
+    networks:
+      - networks
+    volumes:
+      - wp-content:/var/www/html
+    restart: always
 
 volumes:
   wp-database:
@@ -32,6 +44,12 @@ volumes:
       o: bind
       type: none
       device: ~/data/mariadb
+  wp-content:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/data/wordpress
 
 networks:
   networks:
