@@ -1,11 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-cd /var/www/html
-rm -rf *
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-chmod +x wp-cli.phar
-mv wp-cli.phar /usr/local/bin/wp
-wp core download --allow-root
+wget https://th.wordpress.org/latest-th.tar.gz
+tar -xpvf latest-th.tar.gz
+mv wordpress/* .
+rm -rf latest-th.tar.gz wordpress
 mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sed -i -r "s/database/$DB_NAME/1"   wp-config.php
 sed -i -r "s/database_user/$DB_USER/1"  wp-config.php

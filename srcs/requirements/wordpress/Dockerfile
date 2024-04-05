@@ -12,10 +12,14 @@ RUN apt-get -y install \
 	php-cli \
 	php-mbstring \
     curl
-RUN mkdir -p /var/www/html
-COPY tools/setup.sh /usr/local/bin/
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+RUN mkdir /run/php
+COPY ./tools/setup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/setup.sh
+WORKDIR /var/www/html/
 ENTRYPOINT [ "/usr/local/bin/setup.sh" ]
-CMD [ "php-fpm", "-F" ]
+CMD [ "php-fpm7.4", "-F" ]
 
 EXPOSE 9000
