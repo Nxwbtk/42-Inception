@@ -35,7 +35,6 @@ clean: down
 fclean: clean
 	docker system prune -af
 	docker volume prune -f
-	docker volume rm $(docker volume ls -qf dangling=true)
 
 re: clean all
 
