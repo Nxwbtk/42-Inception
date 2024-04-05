@@ -35,6 +35,9 @@ clean: down
 fclean: clean
 	docker system prune -af
 	docker volume prune -f
+	docker exec -it wordpress sh -c "rm -rf /var/www/html/*"
+	docker exec -it mariadb sh -c "rm -rf /var/lib/mysql/*"
+	rm -rf $(WEB_DIR)
 
 re: clean all
 
