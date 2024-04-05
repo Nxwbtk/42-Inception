@@ -6,7 +6,7 @@
 #    By: buntakansirikamonthip <buntakansirikamonth +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:30:17 by buntakansirikamo  #+#    #+#              #
-#    Updated: 2024/04/05 05:00:42 by buntakansirikamo ###   ########.fr        #
+#    Updated: 2024/04/05 12:22:51 by buntakansirikamo ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,5 +30,5 @@ down:
 	docker compose -f ./srcs/docker-compose.yml down
 
 clean: down
-	docker rmi mariadb_image nginx_image
+	docker rmi mariadb_image nginx_image wordpress_image
 	@sudo rm -rf $(WEB_DIR)

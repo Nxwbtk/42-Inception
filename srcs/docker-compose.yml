@@ -11,6 +11,8 @@ services:
       - 80:80
     networks:
       - networks
+    depends_on:
+      - wordpress
     restart: always
   mariabd:
     container_name: mariadb
@@ -34,7 +36,9 @@ services:
     networks:
       - networks
     volumes:
-      - wp-content:/var/www/html
+      - wp-content:/var/www/wordpress
+    depends_on:
+      - mariadb
     restart: always
 
 volumes:
