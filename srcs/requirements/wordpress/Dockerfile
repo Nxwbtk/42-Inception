@@ -12,9 +12,10 @@ RUN apt-get -y install \
 	php-cli \
 	php-mbstring \
     curl
+RUN mkdir -p /var/www/html
 COPY tools/setup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/setup.sh
 ENTRYPOINT [ "/usr/local/bin/setup.sh" ]
-# CMD [ "php-fpm", "-F" ]
+CMD [ "php-fpm", "-F" ]
 
 EXPOSE 9000

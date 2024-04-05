@@ -14,7 +14,7 @@ services:
     depends_on:
       - wordpress
     restart: always
-  mariabd:
+  mariadb:
     container_name: mariadb
     image: mariadb_image
     env_file:
@@ -36,7 +36,7 @@ services:
     networks:
       - networks
     volumes:
-      - wp-content:/var/www/wordpress
+      - wp-content:/var/www/
     depends_on:
       - mariadb
     restart: always
