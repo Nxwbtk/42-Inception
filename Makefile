@@ -33,4 +33,10 @@ clean: down
 	docker rmi mariadb_image nginx_image wordpress_image
 	@sudo rm -rf $(WEB_DIR)
 
+fclean: clean
+	docker system prune -af
+	docker volume prune -f
+
 re: clean all
+
+.PHONY: all create_dir $(NAME) up down clean re
