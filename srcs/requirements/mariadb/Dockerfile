@@ -14,4 +14,5 @@ EXPOSE 3306
 
 ENTRYPOINT [ "/usr/local/bin/init.sh" ]
 
-CMD ["mysqld", "--bind-address=0.0.0.0", "-uroot"]
+# CMD ["mysqld", "--bind-address=0.0.0.0", "-uroot"]
+CMD [ "/usr/bin/mysqld_safe" ]
