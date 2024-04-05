@@ -39,4 +39,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all create_dir $(NAME) up down clean re
+.PHONY: all create_dir $(NAME) up down clean re fclean
