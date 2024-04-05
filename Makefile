@@ -31,7 +31,6 @@ down:
 
 clean: down
 	docker rmi mariadb_image nginx_image wordpress_image
-	@sudo rm -rf $(WEB_DIR)
 
 fclean: clean
 	docker system prune -af
